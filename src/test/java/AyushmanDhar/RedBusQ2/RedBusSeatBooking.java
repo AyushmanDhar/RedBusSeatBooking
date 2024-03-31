@@ -1,13 +1,9 @@
 package AyushmanDhar.RedBusQ2;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,8 +19,10 @@ public class RedBusSeatBooking{
 	WebDriver driver;
 	@BeforeMethod
 	public void initializeDriver() {
+		//WebDriverManager ChromeDriver setup
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
+		//Add implicit wait & maximize the window
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 	}
@@ -83,6 +81,8 @@ public class RedBusSeatBooking{
 	}
 	@AfterMethod
 	public void tearDown() {
+		
+		//Close the session
 		driver.quit();
 	}
 
